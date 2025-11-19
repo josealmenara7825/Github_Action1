@@ -19,6 +19,9 @@ jobs:
       MY_VAR: "Mi primera variable de entorno"
       Region: "Peru"
       Cantidad: 12345
+    
+      user: ${{secrets.User}}
+      password: ${{secrets.Password}}
 
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -50,5 +53,10 @@ jobs:
           echo "La region es: ${{env.Region}}"
           echo "La cantidad es: ${{env.Cantidad}}"
 
-
+      # Impresion de variables secretos
+      - name: Impresion de variables secretas
+        run: |
+          echo "El usuario es: ${{env.user}}"
+          echo "El password es: ${{env.password}}"
+      
           
